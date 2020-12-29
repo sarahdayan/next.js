@@ -1,9 +1,7 @@
-import fs from 'fs'
-import matter from 'gray-matter'
 import Link from 'next/link'
-import path from 'path'
+
 import Layout from '../components/Layout'
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
+import { withData } from '../utils/withData'
 
 export default function Index({ posts }) {
   return (
@@ -17,8 +15,7 @@ export default function Index({ posts }) {
         {posts.map((post) => (
           <li key={post.filePath}>
             <Link
-              as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-              href={`/posts/[slug]`}
+              href={`/${post.filePath}`}
             >
               <a>{post.data.title}</a>
             </Link>
@@ -29,17 +26,18 @@ export default function Index({ posts }) {
   )
 }
 
-export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
-    const { content, data } = matter(source)
+export const getStaticProps = withData(
+  ({ data }) => () => {
+    const posts = Object.keys(data).map((filePath) => ({
+      filePath,
+      ...data[filePath],
+    }))
 
     return {
-      content,
-      data,
-      filePath,
+      props: {
+        posts,
+      },
     }
-  })
-
-  return { props: { posts } }
-}
+  },
+  ['posts']
+)
