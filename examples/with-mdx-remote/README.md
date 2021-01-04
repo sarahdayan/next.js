@@ -24,7 +24,7 @@ And have it rendered like this, without copy/pasting the title and description:
 
 For this to work, we need components that are aware of all the project's available pages. The [`ListOfLinks`][list-of-links] receives a hash of all MDX files in the `/posts` directory via a higher-order component.
 
-In [pages/posts/[slug].js][posts-slug], **we have to fetch all posts twice**: once in `getStaticPaths` to fetch all possible pages under the `/posts` route, and once in `getStaticProps` to provide all pages to [`ListOfLinks`][list-of-links]. This means that if we have 100 pages, we'll do 200 filesystem calls instead of reusing the already fetched pages.
+As a result, in [pages/posts/[slug].js][posts-slug], **we have to fetch all posts twice**: once in `getStaticPaths` to fetch all possible pages under the `/posts` route, and once in `getStaticProps` to provide all pages to [`ListOfLinks`][list-of-links]. This means that if we have 100 pages, we'll do 200 filesystem calls instead of reusing the already fetched pages.
 
 > Note that switching the `withData` helper implementation for more procedural code wouldn't change anything, as [Next.js processes `getStaticPaths` and `getStaticProps` in two different workers][github:nextjs:10933:598297975], thus re-importing and re-executing the whole script each time.
 
