@@ -2,7 +2,7 @@
 
 This attempts to bring in-memory cache to Next.js on the server for performance reasons when building static websites. **It currently doesn't work.**
 
-In this experiment, we want to use data from pages on other pages. For example, in [`posts/example-post.mdx`][example-post], we use a component [`ListOfLinks`][list-of-links] which lets technical writers to reference internal links, like this:
+In this experiment, we want to use data from pages on other pages. For example, in [`posts/example-post.mdx`][example-post], we use a component [`ListOfLinks`][list-of-links] which lets technical writers reference internal links, like this:
 
 ```jsx
 <ListOfLinks links={['posts/hello-world', 'posts/example-post']} />
