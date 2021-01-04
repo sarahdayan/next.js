@@ -14,9 +14,7 @@ export default function Index({ posts }) {
       <ul>
         {posts.map((post) => (
           <li key={post.filePath}>
-            <Link
-              href={`/${post.filePath}`}
-            >
+            <Link href={`/${post.filePath}`}>
               <a>{post.data.title}</a>
             </Link>
           </li>
@@ -39,5 +37,5 @@ export const getStaticProps = withData(
       },
     }
   },
-  ['posts']
+  ['posts/*.mdx']
 )

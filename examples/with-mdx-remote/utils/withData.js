@@ -1,36 +1,22 @@
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
+import glob from 'glob'
 
-import { cache } from './cache'
+function getFilePathsFromSlug(globList) {
+  const files = globList.flatMap((path) => glob.sync(path))
 
-function getFilePathsFromSlug(slug) {
-  if (!cache.get(slug)) {
-    const filePath = path.join(process.cwd(), slug)
-    const allPaths = fs
-      .readdirSync(filePath)
-      .filter((fileName) => /\.mdx?$/.test(fileName))
-      .map((fileName) => path.join(slug, fileName))
-
-    cache.set(slug, allPaths)
-  }
-
-  return cache.get(slug)
+  return files
 }
 
 function getDataFromFilePath(filePath) {
-  if (!cache.get(filePath)) {
-    const source = fs.readFileSync(filePath)
-    const { content, data } = matter(source)
+  const source = fs.readFileSync(filePath)
+  const { content, data } = matter(source)
 
-    cache.set(filePath, { content, data })
-  }
-
-  return cache.get(filePath)
+  return { content, data }
 }
 
-export function withData(getProps, slugs) {
-  const filePaths = slugs.flatMap((slug) => getFilePathsFromSlug(slug))
+export function withData(getProps, globs) {
+  const filePaths = getFilePathsFromSlug(globs)
   const data = filePaths.reduce((acc, filePath) => {
     const [route] = filePath.split('.')
 

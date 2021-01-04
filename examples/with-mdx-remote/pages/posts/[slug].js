@@ -62,12 +62,10 @@ export default function PostPage({ source, frontMatter, allPosts }) {
   )
 }
 
-const postsSlug = 'posts'
-
 export const getStaticProps = withData(
   ({ data: allPosts }) => async ({ params }) => {
     const ListOfLinks = connectListOfLinks(allPosts)
-    const currentPath = path.join(postsSlug, params.slug)
+    const currentPath = path.join('posts', params.slug)
     const { content, data } = allPosts[currentPath]
 
     const mdxSource = await renderToString(content, {
@@ -88,7 +86,7 @@ export const getStaticProps = withData(
       },
     }
   },
-  [postsSlug]
+  ['posts/*.mdx']
 )
 
 export const getStaticPaths = withData(
@@ -102,5 +100,5 @@ export const getStaticPaths = withData(
       fallback: false,
     }
   },
-  [postsSlug]
+  ['posts/*.mdx']
 )
