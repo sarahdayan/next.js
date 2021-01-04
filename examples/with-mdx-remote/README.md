@@ -1,6 +1,6 @@
 # MDX Remote Example + In-Memory Caching
 
-This attempts to bring in-memory cache to Next.js on the server for performance reasons when building static websites with Next.js. **It currently doesn't work.**
+This attempts to bring in-memory cache to Next.js on the server for performance reasons when building static websites. **It currently doesn't work.**
 
 In this experiment, we want to use data from pages on other pages. For example, in [`posts/example-post.mdx`][example-post], we use a component [`ListOfLinks`][list-of-links] which lets technical writers to reference internal links, like this:
 
