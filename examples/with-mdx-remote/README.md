@@ -61,7 +61,7 @@ Then, we run `yarn build`.
 - ~1000 pages: 60.73s
 - ~5000 pages: 539.88s (~9m)
 
-Unsurprisingly, fetching from the filesystem twice results in significant slowdowns. It can be a concern for scaling to tens of thousands of pages.
+Unsurprisingly, fetching from the filesystem twice results in significant slowdowns. It can be a concern for scaling to thousands of pages.
 
 ## Contemplated solution
 
