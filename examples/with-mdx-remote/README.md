@@ -65,7 +65,7 @@ Then, we run `yarn build`.
 > 3.1 GHz Intel Core i5 dual-core processor
 > 16 GB of RAM
 
-Unsurprisingly, fetching from the filesystem twice results in significant slowdowns. It can be a concern for scaling to thousands of pages.
+Unsurprisingly, fetching from the filesystem twice results in significant slowdowns. **It can be a concern for scaling to thousands of pages.**
 
 ## Contemplated solution
 
