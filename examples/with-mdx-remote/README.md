@@ -47,8 +47,6 @@ Then, we run `yarn build`.
 
 ### Results
 
-I ran tests on a MacBook Pro 2017 model with a 3.1 GHz Intel Core i5 dual-core processor an 16 GB of RAM.
-
 #### On `master`
 
 - 4 pages: 9.07s
@@ -62,6 +60,10 @@ I ran tests on a MacBook Pro 2017 model with a 3.1 GHz Intel Core i5 dual-core p
 - ~100 pages: 9.59s
 - ~1000 pages: 60.73s
 - ~5000 pages: 539.88s (~9m)
+
+> Test run on a MacBook Pro 2017 model
+> 3.1 GHz Intel Core i5 dual-core processor
+> 16 GB of RAM
 
 Unsurprisingly, fetching from the filesystem twice results in significant slowdowns. It can be a concern for scaling to thousands of pages.
 
