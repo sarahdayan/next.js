@@ -50,16 +50,16 @@ Then, we run `yarn build`.
 #### On `master`
 
 - 4 pages: 9.07s
-- ~100 pages: 10.00s
-- ~1000 pages: 34.43s
-- ~5000 pages: 133.26s (~2m)
+- 100 pages: 10.00s
+- 1000 pages: 34.43s
+- 5000 pages: 133.26s (~2m)
 
 #### On `feat/in-memory-sitemap`
 
 - 4 pages: 12.68s
-- ~100 pages: 9.59s
-- ~1000 pages: 60.73s
-- ~5000 pages: 539.88s (~9m)
+- 100 pages: 9.59s
+- 1000 pages: 60.73s
+- 5000 pages: 539.88s (~9m)
 
 > Tests run on a MacBook Pro 2017 model
 > 3.1 GHz Intel Core i5 dual-core processor
