@@ -47,6 +47,8 @@ Then, we run `yarn build`.
 
 ### Results
 
+I ran tests on a MacBook Pro 2017 model with a 3.1 GHz Intel Core i5 dual-core processor an 16 GB of RAM.
+
 #### On `master`
 
 - 4 pages: 9.07s
