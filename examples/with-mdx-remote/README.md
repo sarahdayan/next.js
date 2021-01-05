@@ -61,7 +61,7 @@ Then, we run `yarn build`.
 - ~1000 pages: 60.73s
 - ~5000 pages: 539.88s (~9m)
 
-> Test run on a MacBook Pro 2017 model
+> Tests run on a MacBook Pro 2017 model
 > 3.1 GHz Intel Core i5 dual-core processor
 > 16 GB of RAM
 
